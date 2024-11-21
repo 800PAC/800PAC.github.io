@@ -9,12 +9,16 @@
     
 }
 
+.index #css{
+    background-image: linear-gradient(135deg, #2b9273 , rgba(255,0,0,1));
+}
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #2b9273; /*079247*/
+    background-color: #2b9273; /*#079247*/
 
 }
 
@@ -235,3 +239,37 @@ img {vertical-align: middle;}
   .prev, .next,.text {font-size: 11px}
 }
 
+/* Style the schedule dropdown to match the website theme */
+.schedule-dropdown {
+    background-color: #2b9273; /* Matches the background color of the navigation bar */
+    color: white; /* White text for contrast */
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 10px 20px; /* Adds padding for better usability */
+    font-size: 16px; /* Matches other text sizes */
+    font-family: Arial, sans-serif; /* Consistent font */
+    cursor: pointer;
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.schedule-dropdown:hover {
+    background-color: #2c5533; /* Darker shade on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+}
+
+/* Dropdown options */
+.schedule-dropdown option {
+    background-color: white; /* White background for options */
+    color: black; /* Black text for readability */
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* On focus (when the dropdown is selected) */
+.schedule-dropdown:focus {
+    background-color: #4CAF50; /* Highlighted color */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
