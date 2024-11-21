@@ -1,58 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outdated Page</title>
-    <style>
-        /* Style for the page container */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        /* Message text */
-        h1 {
-            color: #2b9273;
-            font-size: 36px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        /* Button styling */
-        .redirect-button {
-            background-color: #2b9273;
-            color: white;
-            font-size: 24px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-        }
-
-        /* Hover effect */
-        .redirect-button:hover {
-            background-color: #2c5533;
-        }
-    </style>
+    <title class="sansserif">800Pac</title>
+    <link rel="stylesheet" type="text/css" href="1.css">
+    <link rel="shortcut icon" type="ico" href="icon/favicon.ico">
 </head>
+
 <body>
-    <h1>Er is een update geweest!</h1>
-    <p>Deze pagina is niet meer in gebruik, <br> klik op de button voor de pagina "schema's" op: <br> <u>https://800pac.github.io/Week.html</u> </p>
-    <!-- Redirect Button -->
-    <a href="https://800pac.github.io/Week.html" class="redirect-button">Ga naar de schema's</a>
+    <div class="header">
+        <img src="img/800PacBanner3.jpg" alt="HTML tutorial" style="float:center;width:100%;height:100%;border:0">
+    </div>
+
+    <ul>
+        <li><a href="https://www.pacrotterdam.nl" target="_blank">
+            <img src="img/890_logo_pac_2-removebg.png" style="float:center;width:50px;height:100%;"></a></li>
+        <li><a class="sansserif" href="index.html"><img src="img/removebg.png" style="float:center;width:0px;height:50px;"><b>800PAC</b></a></li>
+        <li><a class="sansserif" href="Week1.html"><img src="img/removebg.png" style="float:center;width:0px;height:50px;"><b>Schema's</b></a></li>
+        <li><a class="sansserif" href="Afkortingen.html"><img src="img/removebg.png" style="float:center;width:0px;height:50px;">Martien's Vocabulaire</a></li>
+    </ul>
+
+    <h1 style="margin-left: 10px;"></h1>
+
+    <!-- Schedule Selector -->
+    <div style="margin: 20px;">
+        <label for="scheduleSelector" class="sansserif"><b>NEW SELECTOR: Schema's -></b></label>
+        <select id="scheduleSelector" class="schedule-dropdown">
+            <!-- Options will be dynamically populated -->
+        </select>
+    </div>
+
+    <!-- The Schedule -->
+    <iframe id="scheduleFrame" src="Schema's/week06-08.htm" height="2400" width="100%" style="border:none;"></iframe>
+
+    <div class="footer" class="sansserif">
+        <img src="img/890_logo_pac_2-removebg.png" alt="HTML tutorial" style="float:center;width:50px;height:100%;border:0">
+        <p class="sansserif">&#169; 2024 800PAC</p>
+    </div>
+
+    <script>
+        const schedules = [
+            { label: "Week 09-11", url: "Schema's/week09-11.htm" },
+            { label: "Week 06-08", url: "Schema's/week06-08.htm" },
+            { label: "Week 03-05", url: "Schema's/week03-05.htm" },
+            { label: "Week 52-02", url: "Schema's/week52-02.htm" },
+            { label: "Week 49-51", url: "Schema's/week49-51.htm" }
+            // Add more schedules as needed
+        ];
+
+        const scheduleSelector = document.getElementById("scheduleSelector");
+        const scheduleFrame = document.getElementById("scheduleFrame");
+
+        // Populate the dropdown with schedule options
+        schedules.forEach((schedule, index) => {
+            const option = document.createElement("option");
+            option.value = schedule.url;
+            option.textContent = schedule.label;
+
+            if (index === 0) {
+                option.selected = true;
+                scheduleFrame.src = schedule.url; 
+            }
+
+            scheduleSelector.appendChild(option);
+        });
+
+        // Update iframe when a new schedule is selected
+        scheduleSelector.addEventListener("change", () => {
+            scheduleFrame.src = scheduleSelector.value;
+        });
+    </script>
 </body>
+
 </html>
